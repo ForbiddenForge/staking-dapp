@@ -85,6 +85,7 @@ export default function Home() {
 
 
 
+
   const estimateRewards = useMemo(() => {
     if (userData) {
       const currentTime = Math.round(Date.now() / 1000);
@@ -100,6 +101,23 @@ export default function Home() {
     }
   }, [userEstimatedRewards, stakeQuantity, setStakeQuantity, unstakeQuantity, setUnstakeQuantity, userData]);
 
+  const showPanel = () => {
+    if (tokenBalance && tokenBalance > 0) {
+      return true
+    }
+    if (userTotalStakedTokens && userTotalStakedTokens > 0) {
+      return true
+    }
+    if (userEstimatedRewards > 0) {
+      return true
+    }
+    if (userData !== undefined) {
+      return true
+    }
+    else {
+      return false
+    }
+  }
 
 
   return (
@@ -113,9 +131,10 @@ export default function Home() {
         {" "}Staking.
       </h1>
       <div className='flex justify-center items-center'>
-        {address === owner ? <AdminPanel /> : null}
+        {address === owner && <AdminPanel />}
       </div>
 
+      
       <StatisticsPanel 
       address={address}
       dragonTokenContract={dragonTokenContract}
@@ -152,20 +171,22 @@ export default function Home() {
             setStakeQuantity={setStakeQuantity}
           />
 
-          <ClaimPanel 
-            userData={userData}
-            estimateRewards={estimateRewards}
-            userTotalStakedTokens={userTotalStakedTokens}
-            isStakeHolder={isStakeHolder}
-          />
+            
+            <ClaimPanel 
+              userData={userData}
+              estimateRewards={estimateRewards}
+              userTotalStakedTokens={userTotalStakedTokens}
+              isStakeHolder={isStakeHolder}
+            />
+  
+            <UnstakePanel 
+              userData={userData}
+              unstakeQuantity={unstakeQuantity}
+              setUnstakeQuantity={setUnstakeQuantity}
+              isStakeHolder={isStakeHolder}
+              lockedTokenStatus={lockedTokenStatus}
+            />
 
-          <UnstakePanel 
-            userData={userData}
-            unstakeQuantity={unstakeQuantity}
-            setUnstakeQuantity={setUnstakeQuantity}
-            isStakeHolder={isStakeHolder}
-            lockedTokenStatus={lockedTokenStatus}
-          />
 
 
 

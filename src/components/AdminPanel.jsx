@@ -58,7 +58,7 @@ export default function AdminPanel() {
 
 
   return (
-    <div className='card m-5 hidden'>
+    <div className='grid'>
       <h1> ADMIN PANEL </h1>
       <div className='grid'>
       <Web3Button
