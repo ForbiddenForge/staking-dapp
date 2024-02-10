@@ -132,7 +132,6 @@ export default function Home() {
       </h1>
       <div className='flex justify-center items-center'>
         {address === owner && <AdminPanel />}
-        <AdminPanel />
       </div>
 
       
