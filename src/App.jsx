@@ -82,8 +82,13 @@ export default function Home() {
   useEffect(() => {
     setUserTokenBalance(tokenBalance?.displayValue);
   }, [tokenBalance, loadingTokenBalance, userTokenBalance, setUserTokenBalance]);
+  
+  useEffect(() => {
+    if (userData){
 
-
+      console.log('user estimated rewards', userData?.rewardAmount)
+    }
+  })
 
 
   const estimateRewards = useMemo(() => {
