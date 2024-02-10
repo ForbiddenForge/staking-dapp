@@ -57,9 +57,9 @@ export default function StatisticsPanel({ address, dragonTokenContract, loadingD
 
             <div className="mt-1 flex justify-center items-center gap-x-2">
               <h3 className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-200">
-              {userTotalStakedTokens ? 
+              {userData ? 
               ethers.utils.commify(
-                  ethers.utils.formatUnits(userTotalStakedTokens?.toString(), 9)
+                  ethers.utils.formatUnits(userData.stakeAmount?.toString(), 9)
                   ).split('.')[0] 
                 : 0.00}
               </h3>
