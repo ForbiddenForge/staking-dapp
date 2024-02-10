@@ -15,7 +15,7 @@ export default function AdminPanel() {
    * INITIAL STATES
    */
   const owner_ = '0x9412336D45b80896384494ac8C6E7ee4c486aea8'; // Owner wallet address
-  const tokenAddress_ = '0xF503065771865a7a09dFE0757a73c7acadEB208a'; // Token to be staked address
+  const tokenAddress_ = '0x2E5BC438539d0f68667570946a8Fe0e938Bc2261'; // Token to be staked address
   const apyRate_ = 100000; // 1000%
   const minimumStakingAmount_ = '100000000000';
   const maxStakeTokenLimit_ = '200000000000000000';
