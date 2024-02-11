@@ -14,7 +14,7 @@ export default function StatisticsPanel({ address, dragonTokenContract, loadingD
           <div className="p-4 md:p-5">
             <div className="flex items-center gap-x-2">
               <p className="text-xs uppercase tracking-wide text-gray-500">
-                Wallet {" $"}{tokenBalance ? tokenBalance?.symbol : "loading"} Balance
+                User Wallet {" $"}{tokenBalance ? tokenBalance?.symbol : "loading"} Balance
               </p>
               <div className="hs-tooltip">
                 <div className="hs-tooltip-toggle">
@@ -43,7 +43,7 @@ export default function StatisticsPanel({ address, dragonTokenContract, loadingD
           <div className="p-4 md:p-5">
             <div className="flex items-center gap-x-2">
               <p className="text-xs uppercase tracking-wide text-gray-500">
-                Staked {" $"}{tokenBalance?.symbol} Balance
+                User Staked {" $"}{tokenBalance?.symbol} Balance
               </p>
               <div className="hs-tooltip">
                 <div className="hs-tooltip-toggle">
@@ -74,7 +74,7 @@ export default function StatisticsPanel({ address, dragonTokenContract, loadingD
           <div className="p-4 md:p-5">
             <div className="flex items-center gap-x-2">
               <p className="text-xs uppercase tracking-wide text-gray-500">
-                Total Claimed Rewards
+                User Total Claimed Rewards
               </p>
               <div className="hs-tooltip">
                 <div className="hs-tooltip-toggle">
@@ -192,7 +192,7 @@ export default function StatisticsPanel({ address, dragonTokenContract, loadingD
           <div className="p-4 md:p-5">
             <div className="flex items-center gap-x-2">
               <p className="text-xs uppercase tracking-wide text-gray-500">
-                Last User Stake Date
+                User Last Stake Date
               </p>
               <div className="hs-tooltip">
                 <div className="hs-tooltip-toggle">
@@ -205,9 +205,14 @@ export default function StatisticsPanel({ address, dragonTokenContract, loadingD
             </div>
 
             <div className="mt-1 flex justify-center items-center gap-x-2">
-              <h3 className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-200">
+              <h3 className="text-xl sm:text-xl font-medium text-gray-800 dark:text-gray-200">
                 {`${userData ? 
-                  new Date(userData?.lastStakeTime * 1000).toLocaleDateString() : "not staked"}`}
+                  new Date(userData?.lastStakeTime * 1000).toLocaleDateString()
+                  : "not staked"}`}
+                <br />
+                {`${userData ? 
+                  new Date(userData?.lastStakeTime * 1000).toLocaleTimeString()
+                  : ""}`}
               </h3>
               
             </div>
