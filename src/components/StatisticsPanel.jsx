@@ -261,7 +261,10 @@ export default function StatisticsPanel({ address, dragonTokenContract, loadingD
 
             <div className="mt-1 flex justify-center items-center gap-x-2">
               <h3 className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-200">
-                {`${stakingContractBalance && withDrawableAmount ? ethers.utils.commify(Number(ethers.utils.formatUnits((stakingContractBalance?.value), 9)) - Number(ethers.utils.formatUnits((withDrawableAmount), 9))).split('.')[0] : 0.00}`}
+                {stakingContractBalance && userTotalStakedTokens ? 
+                  ethers.utils.commify(ethers.utils.formatUnits(userTotalStakedTokens.toString(), 9)).split('.')[0]
+                  : 0
+                }
               </h3>
               
             </div>
