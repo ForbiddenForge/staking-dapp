@@ -9,7 +9,7 @@ export default function AdminPanel() {
   const { mutateAsync: initialize, isLoading } = useContractWrite(contract, 'initialize')
   const { data: apy } = useContractRead(contract, "getAPY")
   const { data: unstakeFee } = useContractRead(contract, "getEarlyUnstakeFeePercentage") 
-
+  const { data: getStakeEndDate } = useContractRead(contract, "getStakeEndDate")
 
   /**
    * INITIAL STATES
@@ -20,7 +20,7 @@ export default function AdminPanel() {
   const minimumStakingAmount_ = '100000000000';
   const maxStakeTokenLimit_ = '200000000000000000';
   const stakeStartDate_ = 1691924858; // unix timestamp
-  const stakeEndDate_ = 1707887258; // unix timestamp
+  const stakeEndDate_ = 1739675571; // unix timestamp for 2/15/2025
   const stakeDays_ = 30; // 30 days
   const earlyUnstakeFeePercentage_ = 1200; // 12%
 
@@ -32,6 +32,7 @@ export default function AdminPanel() {
   const updateMaximumStakingAmount = '200000000000000000'; // 200M
   const updateApy = 100000; // 500%
   const updateStakeDays = 15; // 15 days
+  const updateStakeEndDate = 1739675571;
 
   const initializeStakingContract = async () => {
     try {
@@ -109,6 +110,24 @@ export default function AdminPanel() {
       >
         Update Staking (Lock) days
       </Web3Button>
+
+      <Web3Button
+        contractAddress={ import.meta.env.VITE_STAKING_CONTRACT_ADDRESS }
+        action={async (contract) => {
+          await contract.call("updateStakingEndDate", [updateStakeEndDate])
+        }}
+      >
+        Update Staking End Date
+      </Web3Button>
+      <h3 className=" bg-white text-xl sm:text-xl font-medium text-gray-800 dark:text-gray-200">
+        <p>Stake End Date</p>
+        {`${getStakeEndDate ? 
+          new Date(getStakeEndDate * 1000).toLocaleDateString()
+          : "not staked"}`}
+        <br />
+        {`${getStakeEndDate ? 
+          getStakeEndDate : 0}`}
+      </h3>
 
       </div>
 
