@@ -86,7 +86,9 @@ export default function Home() {
   useEffect(() => {
     if (userData){
 
-      console.log('user estimated rewards', userData?.rewardAmount)
+      console.log('user data rewards', userData?.rewardAmount)
+      console.log('user estimated rewards:', userEstimatedRewards)
+      console.log(userData)
     }
   })
 
