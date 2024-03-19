@@ -30,8 +30,8 @@ export default function AdminPanel() {
 
   const updateMinimumStakingAmount = '100000000000'; // 100 tokens
   const updateMaximumStakingAmount = '200000000000000000'; // 200M
-  const updateApy = 50000; // 500%
-  const updateStakeDays = 15; // 15 days
+  const updateApy = 12500; // 125%
+  const updateStakeDays = 21; // 21 days
   const updateStakeEndDate = 1739675571;
 
   const initializeStakingContract = async () => {
