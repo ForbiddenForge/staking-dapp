@@ -1,18 +1,16 @@
-import { Web3Button, useAddress, useContract, useContractRead, useContractWrite } from '@thirdweb-dev/react';
+import { Web3Button, useContract, useContractRead, useContractWrite } from '@thirdweb-dev/react';
 import toast from "react-hot-toast";
 import { ethers } from 'ethers';
 
 
 export default function AdminPanel() {
 
-  const address = useAddress();
   const { contract: stakingContract, isLoading: loadingStakingContract } = useContract(import.meta.env.VITE_STAKING_CONTRACT_ADDRESS, "custom");
   const { mutateAsync: initialize, isLoading } = useContractWrite(stakingContract, 'initialize')
   const { data: apy } = useContractRead(stakingContract, "getAPY")
   const { data: unstakeFee } = useContractRead(stakingContract, "getEarlyUnstakeFeePercentage") 
   const { data: getStakeEndDate } = useContractRead(stakingContract, "getStakeEndDate")
-  const {data: userData} =  useContractRead(stakingContract, "getUser", [address])
-  const { data: userEstimatedRewards, isLoading: loadingUserEstimatedRewards } = useContractRead(stakingContract, 'getUserEstimatedRewards');
+
 
   /**
    * INITIAL STATES

@@ -88,7 +88,6 @@ export default function Home() {
 
       console.log('user data rewards', userData?.rewardAmount)
       console.log('user estimated rewards:', userEstimatedRewards)
-      console.log(userData)
     }
   })
 
