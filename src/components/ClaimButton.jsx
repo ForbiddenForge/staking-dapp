@@ -22,7 +22,7 @@ export default function ClaimButton({userTotalStakedTokens, isStakeHolder, estim
       toast.error("Oopsies! Something went wrong⚠️ You may have no rewards to claim. Please ensure that you are using the correct wallet and on ETH Chain.")
     }}
 
-    isDisabled={estimateRewards <= 0}
+    isDisabled={false}
     className="connect-btn"
   >
     Claim Rewards

@@ -120,7 +120,7 @@ export default function StatisticsPanel({ address, dragonTokenContract, loadingD
 
             <div className="mt-1 flex justify-center items-center gap-x-2">
               <h3 className="text-xl sm:text-2xl font-medium text-gray-800 dark:text-gray-200">
-                {`${stakeDays ? stakeDays / 86400 : "not staked"} days`} 
+                {`${stakeDays ? stakeDays / 86400  : "not staked"} days`} 
                 {/* remove or add / 86400 depending on output */}
               </h3>
               
