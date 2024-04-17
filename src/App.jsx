@@ -98,7 +98,7 @@ export default function Home() {
       const currentTime = Math.round(Date.now() / 1000);
       const totalStakedTime = currentTime - userData?.lastRewardCalculationTime.toNumber();
 
-      const estimateRewards = Math.round((((totalStakedTime * userData?.stakeAmount * apy) / (365 * 86400)) / 10000) + userData?.rewardAmount.toNumber());
+      const estimateRewards = Math.round((((totalStakedTime * userData?.stakeAmount * apy) / (365 * 86400)) / 10000));
       
       return estimateRewards
 
