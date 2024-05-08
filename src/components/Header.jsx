@@ -34,8 +34,9 @@ export default function Header() {
               },
             })}
             btnTitle={"Connect Wallet"}
-            switchToActiveChain={false}
-            modalSize={"wide"}
+            switchToActiveChain={true}
+						showThirdwebBranding={false}
+            modalSize={"compact"}
             welcomeScreen={{
               title:
                 "DRGN3D: Your gateway to a decentralized world ",
