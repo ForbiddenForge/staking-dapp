@@ -179,12 +179,12 @@ export default function Home() {
           />
 
             
-            <ClaimPanel 
+            {/* <ClaimPanel 
               userData={userData}
               estimateRewards={estimateRewards}
               userTotalStakedTokens={userTotalStakedTokens}
               isStakeHolder={isStakeHolder}
-            />
+            /> */}
   
             <UnstakePanel 
               userData={userData}
